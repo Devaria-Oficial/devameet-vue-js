@@ -1,0 +1,90 @@
+@import './configs.scss';
+
+@font-face {
+    font-family: $fontRegular;
+    src: url('../fonts/BiennaleRegular.otf');
+}
+
+@font-face {
+    font-family: $fontBold;
+    src: url('../fonts/BiennaleBold.otf');
+}
+
+@font-face {
+    font-family: $fontLight;
+    src: url('../fonts/BiennaleLight.otf');
+}
+
+* {
+    font-family: $fontRegular;
+    font-size: 14px;
+}
+
+html, body{
+    height: 100%;
+    margin: 0;
+}
+
+#app{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    padding: 0;
+}
+
+input{
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    color: $primaryColor;
+    border-radius: 0;
+    border: none;
+    outline: none;
+
+    &:focus{
+        border-color: $primaryColor;
+    }
+
+    &::placeholder{
+        color: $greyColor2;
+        opacity: 1;
+    }
+
+    &:-ms-input-placeholder{
+        color: $greyColor2;
+    }
+
+    &::-ms-input-placeholder{
+        color: $greyColor2;
+    }
+}
+
+.avatar{
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img{
+        border-radius: 50%;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: cover;
+    }
+}
+
+.oculto{
+    display: none !important;
+}
+
+body{
+    @media screen and(min-width: $desktopBreakpoint) {
+        background-color: $primaryColorWithOpacity;
+        background-image: url('../images/background.svg');
+    }
+}
