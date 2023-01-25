@@ -44,7 +44,7 @@ input{
     border: none;
     outline: none;
 
-    &:focus{
+    &.focus{
         border-color: $primaryColor;
     }
 
@@ -83,8 +83,9 @@ input{
 }
 
 body{
-    @media screen and(min-width: $desktopBreakpoint) {
+    @media screen and (min-width: $desktopBreakpoint) {
         background-color: $primaryColorWithOpacity;
         background-image: url('../images/background.svg');
+        background-size: cover;
     }
 }
