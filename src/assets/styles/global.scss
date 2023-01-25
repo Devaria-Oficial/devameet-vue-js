@@ -62,6 +62,18 @@ input{
     }
 }
 
+button {
+    margin-top: 30px;
+    width: 100%;
+    height: 48px;
+    background-color: $primaryColor;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
 .avatar{
     border-radius: 50%;
     width: 120px;
@@ -69,12 +81,13 @@ input{
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 2px solid $primaryColor;
 
     img{
         border-radius: 50%;
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: cover;
+        width: 120px;
+        height: 120px;
+        object-fit: contain;
     }
 }
 
@@ -87,5 +100,111 @@ body{
         background-color: $primaryColorWithOpacity;
         background-image: url('../images/background.svg');
         background-size: cover;
+    }
+}
+
+.g-dialog-content{
+    .wrapper{
+        color: #000;
+    }
+
+    .content{
+        padding: 20px;
+
+        p{
+            font-size: 12px;
+            color: $greyColor;
+            margin: 0;
+        }
+
+        span{
+            font-size: 16px;
+            color: $primaryColor;
+        }
+
+        .line{
+            margin: 16px 0;
+            width: 100%;
+            height: 0;
+            border-bottom: 0,5px solid $greyColor3;
+        }
+
+        .avatars{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            .container-avatar{
+                margin: 3px;
+                width: 29.8%;
+                height: 23vw;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 2px solid $greyColor1;
+                border-radius: 4px;
+                background-color: $primaryColor4;
+
+                &.selected{
+                    border-color: $primaryColor;
+                }
+
+                img{
+                    height: 100%;
+                }
+            }
+        }
+
+        .title{
+            font-size: 30px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .actions{
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 20px;
+
+            span{
+                font-size: 16px;
+                color: $primaryColor;
+                text-decoration: underline;
+                margin-right: 20px;
+            }
+
+            button{
+                margin: 0;
+                width: 40%;
+            }
+        }
+    }
+
+    @media screen and (min-width: $desktopBreakpoint) {
+        max-width: 640px;
+
+        .content{
+            .avatars{
+                .container-avatar{
+                    width: 28%;
+                    height: 10.5vw;
+                    margin: 8px;
+                    cursor: pointer;
+
+                    &:hover{
+                        border: 2px solid $greyColor3;       
+                    }
+
+                    &.selected{
+                        &:hover{
+                            border: 2px solid $primaryColor;       
+                        }
+                    }
+                }
+            }
+        }
     }
 }
