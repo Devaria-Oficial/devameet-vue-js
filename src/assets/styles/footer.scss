@@ -1,0 +1,29 @@
+@import './configs.scss';
+
+.container-footer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-top: 0.5px solid $primaryColor5;
+
+    .container-navigation{
+        flex: 1;
+        background-color: $primaryColorWithOpacity;
+
+        ul{
+            justify-content: space-around;
+
+            li{
+                .iconNav{
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: $desktopBreakpoint) {
+        display: none;
+    }
+}

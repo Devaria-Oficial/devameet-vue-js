@@ -8,10 +8,9 @@ export default defineComponent({
 </script>
 
 <template>
-    <div class="container-header">
-        <img src="../../assets/images/logo.svg" alt="Logo Devameet" class="logo"/>
+    <div class="container-footer">
         <Navigation />
     </div>
 </template>
 
-<style src="@/assets/styles/header.scss" lang="scss"/>
+<style src="@/assets/styles/footer.scss" lang="scss"/>
