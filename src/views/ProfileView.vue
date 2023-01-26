@@ -11,7 +11,7 @@ export default defineComponent({
 </script>
 
 <template>
-    <Header />
+    <Header :hide="true" />
     <div class="container-profile">
         <ActionHeader />
         <AvatarInput />
@@ -30,4 +30,4 @@ export default defineComponent({
     <Footer />
 </template>
 
-<style  lang="scss"/>
+<style src="@/assets/styles/profile.scss"  lang="scss"/>

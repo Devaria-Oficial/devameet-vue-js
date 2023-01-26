@@ -13,4 +13,4 @@ export default defineComponent({
     </div>
 </template>
 
-<style lang="scss"/>
+<style src="@/assets/styles/actionHeader.scss" lang="scss"/>

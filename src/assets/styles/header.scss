@@ -9,6 +9,10 @@
     padding: 12px 0;
     border-bottom: 0.5px solid $greyColor3;
 
+    &.hide{
+        display: none;
+    }
+
     .logo{
         width: 37%;
         max-width: 250px;
@@ -21,6 +25,10 @@
     @media screen and (min-width: $desktopBreakpoint) {
         justify-content: space-between;
         padding: 14px 0;
+
+        &.hide{
+            display: flex;
+        }
         
         .logo{
             margin-left: 4.5%;

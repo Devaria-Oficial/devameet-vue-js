@@ -1,0 +1,157 @@
+@import './configs.scss';
+
+.container-profile {
+    width: 100%;
+    background-color: white;
+    margin-top: 0px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+
+    .container-action-header {
+        width: 92%;
+    }
+
+    .container-upload-image {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        span {
+            display: block;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 24px;
+            text-decoration: underline;
+            cursor: pointer;
+            color: $primaryColor;
+            margin-bottom: 15%;
+        }
+
+        &::after {
+            display: none;
+        }
+
+        .avatar {
+            height: 80px;
+            width: 80px;
+            margin-top: 15%;
+            margin-bottom: 8%;
+
+            img {
+                height: 80px;
+                width: 80px;
+            }
+        }
+    }
+
+    .input {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 12px 0;
+
+        border-bottom: 0.2px solid $greyColor3;
+        border-top: 0.2px solid $greyColor3;
+
+        span {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 12px;
+            margin-left: 16px;
+            margin-right: 12px;
+        }
+
+        input {
+            flex: 1;
+            color: $greyColor4;
+            border: none;
+            outline: none;
+        }
+
+        img {
+            width: 16px;
+            height: 16px;
+            margin-left: 12px;
+            margin-right: 16px;
+        }
+    }
+
+    .logout {
+        flex: 1;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        margin-bottom: 16px;
+
+        div {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                margin-right: 12px;
+            }
+
+            span {
+                font-size: 12px;
+                color: $primaryColor;
+            }
+        }
+    }
+
+    @media screen and (min-width: $desktopBreakpoint) {
+        margin-top: auto;
+        width: 40%;
+        margin-bottom: auto;
+        flex: 0.75;
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14);
+
+        .container-upload-image {
+            span {
+                font-size: 16px;
+            }
+
+            .avatar {
+                height: 120px;
+                width: 120px;
+                margin-top: 15%;
+                margin-bottom: 15%;
+
+                img {
+                    height: 120px;
+                    width: 120px;
+                }
+            }
+        }
+
+        .input{
+            span{
+                margin-left: 24px;
+            }
+
+            span, input{
+                font-size: 16px;
+            }
+
+            img{
+                height: 20px;
+                width: 20px;
+                margin-right: 24px;
+            }
+        }
+
+        .logout{
+            width: 100%;
+            margin-bottom: 25px;
+            justify-content: flex-start;
+
+            div{
+                margin-left: 24px;
+            }
+        }
+    }
+}
