@@ -11,7 +11,7 @@
 
     .logo{
         width: 37%;
-        max-width: 200px;
+        max-width: 250px;
     }
 
     .container-navigation{
@@ -20,7 +20,7 @@
 
     @media screen and (min-width: $desktopBreakpoint) {
         justify-content: space-between;
-        padding: 26px;
+        padding: 14px 0;
         
         .logo{
             margin-left: 4.5%;

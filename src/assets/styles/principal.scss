@@ -1,0 +1,24 @@
+@import './configs.scss';
+
+.container-principal{
+    width: 100%;
+    display: flex;
+    flex: 1;
+    align-items: center;
+
+    .container-meet{
+        align-self: stretch;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: white;
+    }
+
+    @media screen and (min-width: $desktopBreakpoint) {
+        .container-meet{
+            width: 25%;
+            min-width: 350px;
+        }
+    }
+}
