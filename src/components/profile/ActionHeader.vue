@@ -1,15 +1,21 @@
 <script lang="ts">
+import router from '@/router';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
+    methods:{
+        goBack(){
+            router.back();
+        }
+    }
 });
 </script>
 
 <template>
     <div class="container-action-header">
-        <span>Cancelar</span>
+        <span @click="goBack">Cancelar</span>
         <strong>Editar Perfil</strong>
-        <span class="principal">Concluir</span>
+        <span class="principal" @click="$emit('actionCallback')">Concluir</span>
     </div>
 </template>
 

@@ -1,3 +1,4 @@
+import router from "@/router";
 import { useAccessTokenStore } from "@/stores/accessToken";
 import { HttpApiServices } from "./HttpApiServices";
 
@@ -31,5 +32,6 @@ export class LoginServices extends HttpApiServices{
         const store = useAccessTokenStore();
         localStorage.clear();
         store.setToken('');
+        router.push({name: 'login'});
     }
 }
