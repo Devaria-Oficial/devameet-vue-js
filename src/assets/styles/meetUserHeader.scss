@@ -1,0 +1,74 @@
+@import './configs.scss';
+
+.container-meet-user-header {
+    width: 100%;
+    padding: 16px 0;
+    border-bottom: 0.5px solid $greyColor3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    div {
+        margin-left: 16px;
+        display: flex;
+        flex-direction: column;
+
+        span {
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 17px;
+            color: $greyColor;
+        }
+
+        p {
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 22px;
+            margin: 0;
+            color: $primaryColor;
+        }
+
+        input {
+            padding: 3px 0;
+            min-width: 250px;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 22px;
+            color: $primaryColor;
+
+            &:focus {
+                border-bottom: 0.5px solid $primaryColor;
+            }
+        }
+    }
+
+    .add{
+        display: none;
+    }
+
+    .color-select{
+        cursor: pointer;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-right: 16px;
+
+        .circle{
+            width: 24px;
+            height: 24px;
+            border-radius: 24px;
+            border: 0.5px solid $greyColor3;
+            margin-right: 5px;
+        }
+    }
+
+    @media screen and (min-width: $desktopBreakpoint) {
+        .add{
+            display: block;
+            cursor: pointer;
+            margin-right: 16px;
+        }
+    }
+}

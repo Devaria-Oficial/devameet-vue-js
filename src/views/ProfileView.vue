@@ -96,6 +96,4 @@ export default defineComponent({
     <Footer />
 </template>
 
-
-
 <style src="@/assets/styles/profile.scss"  lang="scss"/>
