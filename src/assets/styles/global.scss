@@ -20,12 +20,13 @@
     font-size: 14px;
 }
 
-html, body{
+html,
+body {
     height: 100%;
     margin: 0;
 }
 
-#app{
+#app {
     min-height: 100%;
     display: flex;
     flex-direction: column;
@@ -36,7 +37,7 @@ html, body{
     padding: 0;
 }
 
-input{
+input {
     font-size: 16px;
     letter-spacing: 0.01em;
     color: $primaryColor;
@@ -44,20 +45,20 @@ input{
     border: none;
     outline: none;
 
-    &.focus{
+    &.focus {
         border-color: $primaryColor;
     }
 
-    &::placeholder{
+    &::placeholder {
         color: $greyColor2;
         opacity: 1;
     }
 
-    &:-ms-input-placeholder{
+    &:-ms-input-placeholder {
         color: $greyColor2;
     }
 
-    &::-ms-input-placeholder{
+    &::-ms-input-placeholder {
         color: $greyColor2;
     }
 }
@@ -74,7 +75,7 @@ button {
     cursor: pointer;
 }
 
-.avatar{
+.avatar {
     border-radius: 50%;
     width: 120px;
     height: 120px;
@@ -83,23 +84,23 @@ button {
     justify-content: center;
     border: 2px solid $primaryColor;
 
-    img{
+    img {
         border-radius: 50%;
         width: 120px;
         height: 120px;
         object-fit: contain;
     }
 
-    span{
+    span {
         display: none;
     }
 }
 
-.oculto{
+.oculto {
     display: none !important;
 }
 
-body{
+body {
     @media screen and (min-width: $desktopBreakpoint) {
         background-color: $primaryColorWithOpacity;
         background-image: url('../images/background.svg');
@@ -107,39 +108,39 @@ body{
     }
 }
 
-.g-dialog-content{
-    .wrapper{
+.g-dialog-content {
+    .wrapper {
         color: #000;
     }
 
-    .content{
+    .content {
         padding: 20px;
 
-        p{
+        p {
             font-size: 12px;
             color: $greyColor;
             margin: 0;
         }
 
-        span{
+        span {
             font-size: 16px;
             color: $primaryColor;
         }
 
-        .line{
+        .line {
             margin: 16px 0;
             width: 100%;
             height: 0;
-            border-bottom: 0,5px solid $greyColor3;
+            border-bottom: 0, 5px solid $greyColor3;
         }
 
-        .avatars{
+        .avatars {
             display: flex;
             align-items: center;
             justify-content: center;
             flex-wrap: wrap;
 
-            .container-avatar{
+            .container-avatar {
                 margin: 3px;
                 width: 29.8%;
                 height: 23vw;
@@ -150,39 +151,58 @@ body{
                 border-radius: 4px;
                 background-color: $primaryColor4;
 
-                &.selected{
+                &.selected {
                     border-color: $primaryColor;
                 }
 
-                img{
+                img {
                     height: 100%;
                 }
             }
         }
 
-        .title{
+        .title {
             font-size: 30px;
             font-weight: 700;
             margin-bottom: 20px;
         }
 
-        .actions{
+        .actions {
             margin-top: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding-bottom: 20px;
 
-            span{
+            span {
+                cursor: pointer;
                 font-size: 16px;
                 color: $primaryColor;
                 text-decoration: underline;
                 margin-right: 20px;
             }
 
-            button{
+            button {
                 margin: 0;
                 width: 40%;
+            }
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            span {
+                font-weight: 700;
+                font-size: 18px;
+                margin-bottom: 16px;
+            }
+
+            p {
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
             }
         }
     }
@@ -190,21 +210,21 @@ body{
     @media screen and (min-width: $desktopBreakpoint) {
         max-width: 640px;
 
-        .content{
-            .avatars{
-                .container-avatar{
+        .content {
+            .avatars {
+                .container-avatar {
                     width: 28%;
                     height: 10.5vw;
                     margin: 8px;
                     cursor: pointer;
 
-                    &:hover{
-                        border: 2px solid $greyColor3;       
+                    &:hover {
+                        border: 2px solid $greyColor3;
                     }
 
-                    &.selected{
-                        &:hover{
-                            border: 2px solid $primaryColor;       
+                    &.selected {
+                        &:hover {
+                            border: 2px solid $primaryColor;
                         }
                     }
                 }

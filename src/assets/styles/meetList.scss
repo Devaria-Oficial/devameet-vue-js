@@ -1,0 +1,34 @@
+@import './configs.scss';
+
+.container-meet-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .empty {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            margin-top: 56px;
+            width: 70%;
+        }
+
+        p {
+            font-weight: 600;
+            line-height: 40px;
+            color: $greyColor;
+        }
+    }
+
+    @media screen and (min-width: $desktopBreakpoint) {
+        .empty {
+            img {
+                margin-top: 80px;
+            }
+        }
+    }
+}
