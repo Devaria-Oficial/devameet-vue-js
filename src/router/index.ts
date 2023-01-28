@@ -4,6 +4,7 @@ import RegisterView from '../views/RegisterView.vue';
 import HomeView from '../views/HomeView.vue';
 import { useAccessTokenStore } from '@/stores/accessToken';
 import ProfileView from '@/views/ProfileView.vue';
+import MeetAddView from '@/views/MeetAddView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,6 +29,12 @@ const router = createRouter({
       path: '/user',
       name: 'user',
       component: ProfileView,
+      meta: {rotaPrivada: true}
+    },
+    {
+      path: '/add',
+      name: 'add',
+      component: MeetAddView,
       meta: {rotaPrivada: true}
     },
   ]
