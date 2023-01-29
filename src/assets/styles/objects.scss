@@ -1,190 +1,218 @@
 @import './configs.scss';
 
-.container-objects{
+.container-objects {
     display: flex;
     flex: 1;
     align-items: flex-start;
     justify-content: center;
 
-    .grid{
+    .grid {
         width: 640px;
         height: 640px;
         background-color: white;
         box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14);
         position: relative;
 
-        img{
+        .preview {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            z-index: 30;
+            background-color: $greyColor4WithOpacity;
+
+            img {
+                position: relative;
+                margin-bottom: 3%;
+                cursor: auto;
+            }
+
+            button{
+                width: 30%;
+                background-color: transparent;
+                border: 2px solid white;
+            }
+        }
+
+        img {
             position: absolute;
             cursor: pointer;
 
-            &.selected{
+            &.selected {
                 filter: invert(25%) sepia(40%) saturate(4000%) hue-rotate(709deg) brightness(80%) contrast(104%)
             }
 
-            &.column-start{
+            &.column-start {
                 left: 0%;
             }
 
-            &.row-start{
+            &.row-start {
                 top: 0%;
             }
 
-            &.floor-start{
+            &.floor-start {
                 top: 12.5%;
             }
 
-            &.column-zero{
+            &.column-zero {
                 left: 2%;
             }
 
-            &.column-one{
+            &.column-one {
                 left: 14.5%;
             }
 
-            &.column-two{
+            &.column-two {
                 left: 27%;
             }
 
-            &.column-three{
+            &.column-three {
                 left: 39.5%;
             }
 
-            &.column-four{
+            &.column-four {
                 left: 52%;
             }
 
-            &.column-five{
+            &.column-five {
                 left: 64.5%;
             }
 
-            &.column-six{
+            &.column-six {
                 left: 77%;
             }
 
-            &.column-seven{
+            &.column-seven {
                 left: 89.5%;
             }
 
-            &.row-zero{
+            &.row-zero {
                 top: 2%;
             }
 
-            &.row-one{
+            &.row-one {
                 top: 14.5%;
             }
 
-            &.row-two{
+            &.row-two {
                 top: 27%;
             }
 
-            &.row-three{
+            &.row-three {
                 top: 39.5%;
             }
 
-            &.row-four{
+            &.row-four {
                 top: 52%;
             }
 
-            &.row-five{
+            &.row-five {
                 top: 64.5%;
             }
 
-            &.row-six{
+            &.row-six {
                 top: 77%;
             }
 
-            &.row-seven{
+            &.row-seven {
                 top: 89.5%;
             }
         }
 
 
-        .line{
+        .line {
             position: absolute;
             height: 0px;
             margin: 0;
             z-index: 10;
 
-            &.row{
+            &.row {
                 left: 0;
                 border-bottom: 0.5px solid $greyColor3;
                 height: 0;
                 width: 100%;
 
-                &.one{
+                &.one {
                     top: 12.5%;
                 }
 
-                &.two{
+                &.two {
                     top: 25%;
                 }
 
-                &.three{
+                &.three {
                     top: 37.5%;
                 }
 
-                &.four{
+                &.four {
                     top: 50%;
                 }
 
-                &.five{
+                &.five {
                     top: 62.5%;
                 }
 
-                &.six{
+                &.six {
                     top: 75%;
                 }
 
-                &.seven{
+                &.seven {
                     top: 87.5%;
                 }
             }
 
-            &.column{
+            &.column {
                 top: 0;
                 border-left: 0.5px solid $greyColor3;
                 width: 0;
                 height: 100%;
 
-                &.one{
+                &.one {
                     left: 12.5%;
                 }
 
-                &.two{
+                &.two {
                     left: 25%;
                 }
 
-                &.three{
+                &.three {
                     left: 37.5%;
                 }
 
-                &.four{
+                &.four {
                     left: 50%;
                 }
 
-                &.five{
+                &.five {
                     left: 62.5%;
                 }
 
-                &.six{
+                &.six {
                     left: 75%;
                 }
 
-                &.seven{
+                &.seven {
                     left: 87.5%;
                 }
             }
         }
+
+
     }
 
-    .actions{
+
+
+    .actions {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         margin-left: 16px;
 
-        div{
+        div {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -195,14 +223,12 @@
             border-radius: 4px;
             cursor: not-allowed;
 
-            &.active{
+            &.active {
                 cursor: pointer;
                 background-color: $primaryColor;
             }
         }
     }
 
-    @media screen and (min-width: $desktopBreakpoint) {
-
-    }
+    @media screen and (min-width: $desktopBreakpoint) {}
 }

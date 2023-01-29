@@ -31,6 +31,7 @@ export default defineComponent({
         },
         selectItem(id: string) {
             this.selectedId = id;
+            this.$emit('selectItem', id);
         },
         selectToRemove(id: string) {
             this.selectedId = id;
