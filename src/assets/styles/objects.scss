@@ -15,6 +15,7 @@
 
         img{
             position: absolute;
+            cursor: pointer;
 
             &.selected{
                 filter: invert(25%) sepia(40%) saturate(4000%) hue-rotate(709deg) brightness(80%) contrast(104%)
