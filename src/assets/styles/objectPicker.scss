@@ -1,0 +1,71 @@
+@import './configs.scss';
+
+.container-object-picker{
+    width: 96%;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0;
+    border-bottom: 0.5px solid $greyColor3;
+
+    .action{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        cursor: pointer;
+
+        img{
+            margin-right: 8px;
+        }
+
+        span{
+            margin-right: 16px;
+        }
+    }
+
+    .objects{
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 8px;
+
+        div{
+            background-color: $primaryColor4;
+            cursor: pointer;
+            width: 30%;
+            height: 7vw;
+            margin-right: 6px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid transparent;
+            position: relative;
+
+            &:hover{
+                border-color: $greyColor3;
+            }
+
+            &.selected{
+                border-color: $primaryColor;
+            }
+
+            .object{
+                height: 90%;
+
+                &.large{
+                    height: auto;
+                    width: 100%;
+                }
+            }
+
+            .add{
+                position: absolute;
+                align-self: center;
+                justify-content: center;
+            }
+        }
+    }
+
+    @media screen and (min-width: $desktopBreakpoint) {
+        
+    }
+}
