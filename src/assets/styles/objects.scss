@@ -1,0 +1,207 @@
+@import './configs.scss';
+
+.container-objects{
+    display: flex;
+    flex: 1;
+    align-items: flex-start;
+    justify-content: center;
+
+    .grid{
+        width: 640px;
+        height: 640px;
+        background-color: white;
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14);
+        position: relative;
+
+        img{
+            position: absolute;
+
+            &.selected{
+                filter: invert(25%) sepia(40%) saturate(4000%) hue-rotate(709deg) brightness(80%) contrast(104%)
+            }
+
+            &.column-start{
+                left: 0%;
+            }
+
+            &.row-start{
+                top: 0%;
+            }
+
+            &.floor-start{
+                top: 12.5%;
+            }
+
+            &.column-zero{
+                left: 2%;
+            }
+
+            &.column-one{
+                left: 14.5%;
+            }
+
+            &.column-two{
+                left: 27%;
+            }
+
+            &.column-three{
+                left: 39.5%;
+            }
+
+            &.column-four{
+                left: 52%;
+            }
+
+            &.column-five{
+                left: 64.5%;
+            }
+
+            &.column-six{
+                left: 77%;
+            }
+
+            &.column-seven{
+                left: 89.5%;
+            }
+
+            &.row-zero{
+                top: 2%;
+            }
+
+            &.row-one{
+                top: 14.5%;
+            }
+
+            &.row-two{
+                top: 27%;
+            }
+
+            &.row-three{
+                top: 39.5%;
+            }
+
+            &.row-four{
+                top: 52%;
+            }
+
+            &.row-five{
+                top: 64.5%;
+            }
+
+            &.row-six{
+                top: 77%;
+            }
+
+            &.row-seven{
+                top: 89.5%;
+            }
+        }
+
+
+        .line{
+            position: absolute;
+            height: 0px;
+            margin: 0;
+            z-index: 10;
+
+            &.row{
+                left: 0;
+                border-bottom: 0.5px solid $greyColor3;
+                height: 0;
+                width: 100%;
+
+                &.one{
+                    top: 12.5%;
+                }
+
+                &.two{
+                    top: 25%;
+                }
+
+                &.three{
+                    top: 37.5%;
+                }
+
+                &.four{
+                    top: 50%;
+                }
+
+                &.five{
+                    top: 62.5%;
+                }
+
+                &.six{
+                    top: 75%;
+                }
+
+                &.seven{
+                    top: 87.5%;
+                }
+            }
+
+            &.column{
+                top: 0;
+                border-left: 0.5px solid $greyColor3;
+                width: 0;
+                height: 100%;
+
+                &.one{
+                    left: 12.5%;
+                }
+
+                &.two{
+                    left: 25%;
+                }
+
+                &.three{
+                    left: 37.5%;
+                }
+
+                &.four{
+                    left: 50%;
+                }
+
+                &.five{
+                    left: 62.5%;
+                }
+
+                &.six{
+                    left: 75%;
+                }
+
+                &.seven{
+                    left: 87.5%;
+                }
+            }
+        }
+    }
+
+    .actions{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-left: 16px;
+
+        div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background-color: $greyColor3;
+            margin-bottom: 16px;
+            border-radius: 4px;
+            cursor: not-allowed;
+
+            &.active{
+                cursor: pointer;
+                background-color: $primaryColor;
+            }
+        }
+    }
+
+    @media screen and (min-width: $desktopBreakpoint) {
+
+    }
+}

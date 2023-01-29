@@ -16,6 +16,7 @@ import decorIcon from '../../assets/images/decor.svg';
 import plantsIcon from '../../assets/images/plants.svg';
 
 import objectAssetsJson from '../../assets/objects/objects.json';
+import MeetObjectsRoom from './MeetObjectsRoom.vue';
 
 const meetServices = new MeetServices();
 
@@ -33,7 +34,7 @@ export default defineComponent({
             objectAssetsJson
         }
     },
-    components: { MeetUserHeader, MeetList, MeetAddEditHeader, MeetObjectPicker },
+    components: { MeetUserHeader, MeetList, MeetAddEditHeader, MeetObjectPicker, MeetObjectsRoom },
     data() {
         return {
             index: 0,
@@ -144,35 +145,7 @@ export default defineComponent({
                 <button @click="updateMeet" :class="getFormValidClass" :disabled="!isFormValid">Salvar</button>
             </div>
         </div>
-        <div class="container-objects">
-            <div class="grid">
-                <div class="line row one" />
-                <div class="line row two" />
-                <div class="line row three" />
-                <div class="line row four" />
-                <div class="line row five" />
-                <div class="line row six" />
-                <div class="line row seven" />
-                <div class="line column one" />
-                <div class="line column two" />
-                <div class="line column three" />
-                <div class="line column four" />
-                <div class="line column five" />
-                <div class="line column six" />
-                <div class="line column seven" />
-            </div>
-            <div class="actions">
-                <div>
-                    <img src="../../assets/images/thrash_white.svg" alt="Deletar objeto" />
-                </div>
-                <div>
-                    <img src="../../assets/images/rotate_right.svg" alt="Girar a Direita" />
-                </div>
-                <div>
-                    <img src="../../assets/images/rotate_left.svg" alt="Girar a Esquerda" />
-                </div>
-            </div>
-        </div>
+        <MeetObjectsRoom :objects="objects" :selected="selected" />
     </div>
 </template>
 
