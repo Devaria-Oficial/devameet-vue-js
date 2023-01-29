@@ -38,6 +38,45 @@
                 }
             }
         }
+
+        .input{
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 40px;
+            padding-bottom: 5px;
+
+            border: none;
+            border-bottom: 1px solid $greyColor2;
+
+            &.focus{
+                border-color: $primaryColor;
+            }
+
+            img{
+                width: 20px;
+                margin-right: 10px;
+            }
+
+            input{
+                display: flex;
+                align-items: center;
+                width: 100%;
+                font-size: 14px;
+            }
+        }
+
+        button{
+            width: 80%;
+        }
+
+        .error{
+            text-align: center;
+            color: $error;
+            margin-top: 20px;
+            margin-bottom: -20px;
+        }
     }
 
     @media screen and (min-width: $desktopBreakpoint) {

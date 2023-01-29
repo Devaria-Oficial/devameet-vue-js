@@ -6,6 +6,7 @@ import { useAccessTokenStore } from '@/stores/accessToken';
 import ProfileView from '@/views/ProfileView.vue';
 import MeetAddView from '@/views/MeetAddView.vue';
 import MeetEditView from '@/views/MeetEditView.vue';
+import RoomLinkView from '@/views/RoomLinkView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,14 +15,14 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
-      meta: {rotaPrivada: true}
+      meta: { rotaPrivada: true }
     },
     {
       path: '/',
       name: 'login',
       component: LoginView,
       props: true
-    },{
+    }, {
       path: '/register',
       name: 'register',
       component: RegisterView
@@ -30,19 +31,25 @@ const router = createRouter({
       path: '/user',
       name: 'user',
       component: ProfileView,
-      meta: {rotaPrivada: true}
+      meta: { rotaPrivada: true }
     },
     {
       path: '/add',
       name: 'add',
       component: MeetAddView,
-      meta: {rotaPrivada: true}
+      meta: { rotaPrivada: true }
     },
     {
       path: '/edit/:id',
       name: 'edit',
       component: MeetEditView,
-      meta: {rotaPrivada: true}
+      meta: { rotaPrivada: true }
+    },
+    {
+      path: '/link',
+      name: 'link',
+      component: RoomLinkView,
+      meta: { rotaPrivada: true }
     },
   ]
 });
@@ -50,10 +57,10 @@ const router = createRouter({
 router.beforeEach((to, from) => {
   const store = useAccessTokenStore();
 
-  if(to.name !== 'login' && to.meta.rotaPrivada && !store.isAuthenticated){
-    return {name : 'login'} 
-  }else if(to.name === 'register' && store.isAuthenticated){
-    return {name : 'home'} 
+  if (to.name !== 'login' && to.meta.rotaPrivada && !store.isAuthenticated) {
+    return { name: 'login' }
+  } else if (to.name === 'register' && store.isAuthenticated) {
+    return { name: 'home' }
   }
 });
 
