@@ -7,6 +7,7 @@ import ProfileView from '@/views/ProfileView.vue';
 import MeetAddView from '@/views/MeetAddView.vue';
 import MeetEditView from '@/views/MeetEditView.vue';
 import RoomLinkView from '@/views/RoomLinkView.vue';
+import RoomView from '@/views/RoomView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -49,6 +50,12 @@ const router = createRouter({
       path: '/link',
       name: 'link',
       component: RoomLinkView,
+      meta: { rotaPrivada: true }
+    },
+    {
+      path: '/room/:link',
+      name: 'room',
+      component: RoomView,
       meta: { rotaPrivada: true }
     },
   ]

@@ -1,12 +1,12 @@
 @import './configs.scss';
 
-.container-principal{
+.container-principal {
     width: 100%;
     display: flex;
     flex: 1;
     align-items: center;
 
-    .container-meet{
+    .container-meet {
         align-self: stretch;
         width: 100%;
         display: flex;
@@ -32,14 +32,14 @@
                 margin: 0;
                 width: 150px;
 
-                &.disabled{
+                &.disabled {
                     cursor: not-allowed;
                     background-color: $greyColor3;
                 }
             }
         }
 
-        .input{
+        .input {
             width: 80%;
             display: flex;
             align-items: center;
@@ -50,16 +50,16 @@
             border: none;
             border-bottom: 1px solid $greyColor2;
 
-            &.focus{
+            &.focus {
                 border-color: $primaryColor;
             }
 
-            img{
+            img {
                 width: 20px;
                 margin-right: 10px;
             }
 
-            input{
+            input {
                 display: flex;
                 align-items: center;
                 width: 100%;
@@ -67,11 +67,11 @@
             }
         }
 
-        button{
+        button {
             width: 80%;
         }
 
-        .error{
+        .error {
             text-align: center;
             color: $error;
             margin-top: 20px;
@@ -79,111 +79,195 @@
         }
     }
 
+    .container-room {
+        align-self: stretch;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+
+        background-color: $primaryColorWithOpacity;
+        background-image: url('../images/background.svg');
+        background-size: cover;
+
+        .empty {
+            width: 100%;
+            height: 90vw;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.2);
+
+            img {
+                width: 80%;
+            }
+
+            p {
+                font-weight: 600;
+                line-height: 40px;
+                color: $greyColor;
+            }
+        }
+
+        .resume {
+            margin: 16px;
+
+            span {
+                font-weight: 600;
+                line-height: 17px;
+                font-size: 12px;
+                color: $greyColor;
+            }
+
+            p {
+                margin: 0;
+                font-weight: 700;
+                line-height: 22px;
+                font-size: 16px;
+            }
+
+            img {
+                margin-left: 4px;
+            }
+        }
+    }
+
     @media screen and (min-width: $desktopBreakpoint) {
-        .container-meet{
+        .container-meet {
             width: 25%;
             min-width: 350px;
         }
 
-        .container-room{
+        .container-room {
+            background-color: transparent;
+            background-image: none; 
+            background-size: none;
+
+            flex-direction: row;
+            padding: 20px;
+
+            .empty{
+                width: 40%;
+                height: 40vw;
+            }
+
+            .resume{
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                align-items: flex-start;
+                justify-content: flex-end;
+                margin: 0;
+                padding-bottom: 20px;
+
+                div{
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .container-grid-add {
             display: flex;
             flex: 1;
             align-items: flex-start;
             justify-content: center;
 
-            .grid{
+            .grid {
                 width: 640px;
                 height: 640px;
                 background-color: white;
                 box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14);
                 position: relative;
 
-                .line{
+                .line {
                     position: absolute;
                     height: 0px;
                     margin: 0;
                     z-index: 10;
 
-                    &.row{
+                    &.row {
                         left: 0;
                         border-bottom: 0.5px solid $primaryColor;
                         height: 0;
                         width: 100%;
 
-                        &.one{
+                        &.one {
                             top: 12.5%;
                         }
 
-                        &.two{
+                        &.two {
                             top: 25%;
                         }
 
-                        &.three{
+                        &.three {
                             top: 37.5%;
                         }
 
-                        &.four{
+                        &.four {
                             top: 50%;
                         }
 
-                        &.five{
+                        &.five {
                             top: 62.5%;
                         }
 
-                        &.six{
+                        &.six {
                             top: 75%;
                         }
 
-                        &.seven{
+                        &.seven {
                             top: 87.5%;
                         }
                     }
 
-                    &.column{
+                    &.column {
                         top: 0;
                         border-left: 0.5px solid $primaryColor;
                         width: 0;
                         height: 100%;
 
-                        &.one{
+                        &.one {
                             left: 12.5%;
                         }
 
-                        &.two{
+                        &.two {
                             left: 25%;
                         }
 
-                        &.three{
+                        &.three {
                             left: 37.5%;
                         }
 
-                        &.four{
+                        &.four {
                             left: 50%;
                         }
 
-                        &.five{
+                        &.five {
                             left: 62.5%;
                         }
 
-                        &.six{
+                        &.six {
                             left: 75%;
                         }
 
-                        &.seven{
+                        &.seven {
                             left: 87.5%;
                         }
                     }
                 }
             }
 
-            .actions{
+            .actions {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
                 margin-left: 16px;
 
-                div{
+                div {
                     display: flex;
                     align-items: center;
                     justify-content: center;

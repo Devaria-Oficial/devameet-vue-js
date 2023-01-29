@@ -69,7 +69,7 @@ export default defineComponent({
                 <button @click="createMeet" :class="getFormValidClass" :disabled="!isFormValid">Salvar</button>
             </div>
         </div>
-        <div class="container-room">
+        <div class="container-grid-add">
             <div class="grid">
                 <div class="line row one"/>
                 <div class="line row two"/>

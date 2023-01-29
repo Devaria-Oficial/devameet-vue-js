@@ -2,8 +2,18 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
+    setup(){
+        return {
+            mobile: window.innerWidth <= 992
+        }
+    },
     props: {
         objects: Array
+    },
+    data(){
+        return {
+            objectsWithWidth : [] as any
+        }
     },
     mounted() {
 
@@ -13,6 +23,19 @@ export default defineComponent({
             if (object?.name?.trim().length > 0) {
                 const path = `../../assets/objects/${object?.type}/${object.name}${object.orientation ? '_' + object.orientation : ''}.png`;
                 const imageUrl = new URL(path, import.meta.url);
+
+                if(this.mobile){
+                    let img = new Image();
+                    img.onload = () => {
+                        const exist = this.objectsWithWidth.find((o : any) => o.name == object.name);
+                        if(!exist){
+                            console.log({ name: object.name, width: img.width});
+                            this.objectsWithWidth.push({ name: object.name, width: img.width});
+                        }
+                    }
+                    img.src = imageUrl.href;
+                }
+
                 return imageUrl.href;
             }
         },
@@ -21,6 +44,15 @@ export default defineComponent({
 
             if (object.zindex) {
                 style.zIndex = object.zindex;
+            }
+
+            if(this.mobile){
+                const obj = this.objectsWithWidth.find((o : any) => o.name == object.name);
+
+                if(obj){
+                    const width = obj.width * 0.5;
+                    style.width = width + 'px';
+                }
             }
 
             return style
