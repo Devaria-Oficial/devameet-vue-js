@@ -61,6 +61,11 @@ export default defineComponent({
                 audio: true
             });
 
+            if (document.getElementById('localVideoRef')) {
+                const videoRef: any = document.getElementById('localVideoRef');
+                videoRef.srcObject = this.userMediaStream;
+            }
+
         } catch (e) {
             console.log('erro ao obter dados da reunião:', e);
         }
@@ -75,17 +80,38 @@ export default defineComponent({
                 this.wsServices.onUpdateUsersList(async (users: any) => {
                     if (users) {
                         this.connectedUsers = users;
-                        const me = users.find((u: any) => u.user = this.userId);
+                        const me = users.find((u: any) => u.user === this.userId);
                         if (me) {
                             this.me = me;
                         }
 
-                        console.log(users);
+                        const usersWithoutMe = users.filter((u: any) => u.user !== this.userId)
+                        for (const user of usersWithoutMe) {
+                            this.wsServices.addPeerConnection(user.clientId, this.userMediaStream, (_stream: any) => {
+                                if (document.getElementById(user.clientId)) {
+                                    const element = document.getElementById(user.clientId) as any;
+                                    element.srcObject = _stream;
+                                }
+                            });
+                        }
                     }
                 });
                 this.wsServices.onRemoveUser((socketId: any) => {
                     this.connectedUsers = this.connectedUsers.filter((u: any) => u.clientId !== socketId);
-                })
+                    this.wsServices.removerPeerConnection(socketId);
+                });
+
+                this.wsServices.onAddUser((user: any) => {
+                    console.log('onAddUser', user);
+                    this.wsServices.addPeerConnection(user, this.userMediaStream, (_stream: any) => {
+                        if (document.getElementById(user)) {
+                            const element = document.getElementById(user) as any;
+                            element.srcObject = _stream;
+                        }
+                    });
+
+                    this.wsServices.callUser(user);
+                });
 
                 document.addEventListener('keyup', this.doMovement);
             } else {
@@ -123,7 +149,7 @@ export default defineComponent({
                         payload.y = user.y;
                         payload.orientation = 'left';
                         if (user.orientation === 'left') {
-                            payload.x = user.x >0 ? user.x - 1 : 0;
+                            payload.x = user.x > 0 ? user.x - 1 : 0;
                         } else {
                             payload.x = user.x
                         }
@@ -140,7 +166,7 @@ export default defineComponent({
                     default: break;
                 }
 
-                if(payload.x >=0 && payload.y >=0 && payload.orientation){
+                if (payload.x >= 0 && payload.y >= 0 && payload.orientation) {
                     this.wsServices.updateUserMovement(payload);
                 }
             }
@@ -153,6 +179,11 @@ export default defineComponent({
             }
 
             this.wsServices.updateUserMuted(payload);
+        }
+    },
+    computed: {
+        usersWithoutMe() {
+            return this.connectedUsers.filter((u: any) => u.user !== this.userId)
         }
     }
 });
@@ -167,6 +198,8 @@ export default defineComponent({
                     <img src="../../assets/images/copy.svg" />
                 </div>
                 <p :style="{ color }">{{ name }}</p>
+                <audio id="localVideoRef" autoplay playsinline muted />
+                <audio v-for="user in usersWithoutMe" autoplay playsinline :id="user?.clientId" :muted="user?.muted" />
             </div>
             <ObjectsRoom :objects="objects" :connectedUsers="connectedUsers" :me="me"
                 v-if="objects && objects.length > 0" @enterRoom="joinRoom" @togglMute="togglMute" />
@@ -204,6 +237,8 @@ export default defineComponent({
         </div>
     </GDialog>
 </template>
+
+
 
 
 
