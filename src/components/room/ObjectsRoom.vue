@@ -136,6 +136,13 @@ export default defineComponent({
                 return user.name.split(' ')[0];
             }
             return '';
+        },
+        getMutedClass(user: any){
+            if(user?.muted){
+                return 'muted';
+            }
+
+            return '';
         }
     }
 });
@@ -147,10 +154,11 @@ export default defineComponent({
             <img v-for="object in objects" :src="getImageFromObject(object, false)" :style="getObjectStyle(object)"
                 :class="getObjectClass(object)" @click="$emit('selectedObject', object)" />
             <div class="user-avatar" v-for="user in connectedUsers" :class="getObjectClass(user)">
-                <div><span>{{ getName(user) }}</span></div>
+                <div :class="getMutedClass(user)"><span :class="getMutedClass(user)">{{ getName(user) }}</span></div>
                 <img :src="getImageFromObject(user, true)" :style="getObjectStyle(user)"/>
             </div>
-
+            <img class="audio" src="../../assets/images/audio_on.svg" v-if="me && !me.muted" @click="$emit('togglMute')"/>
+            <img class="audio" src="../../assets/images/audio_off.svg" v-if="me && me.muted" @click="$emit('togglMute')"/>
             <div class="preview" v-if="!connectedUsers || connectedUsers.length === 0">
                 <img src="../../assets/images/preview.svg" alt="entrar na sala" />
                 <button @click="$emit('enterRoom')">Entrar na sala</button>
