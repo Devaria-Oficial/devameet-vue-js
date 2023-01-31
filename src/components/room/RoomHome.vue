@@ -77,6 +77,7 @@ export default defineComponent({
         joinRoom() {
             if (this.userMediaStream) {
                 this.wsServices.joinRoom(this.link, this.userId);
+                this.wsServices.onCallMade();
                 this.wsServices.onUpdateUsersList(async (users: any) => {
                     if (users) {
                         this.connectedUsers = users;
@@ -96,6 +97,7 @@ export default defineComponent({
                         }
                     }
                 });
+
                 this.wsServices.onRemoveUser((socketId: any) => {
                     this.connectedUsers = this.connectedUsers.filter((u: any) => u.clientId !== socketId);
                     this.wsServices.removerPeerConnection(socketId);
@@ -112,6 +114,8 @@ export default defineComponent({
 
                     this.wsServices.callUser(user);
                 });
+
+                this.wsServices.onAnswerMade((socket: any) => this.wsServices.callUser(socket));
 
                 document.addEventListener('keyup', this.doMovement);
             } else {

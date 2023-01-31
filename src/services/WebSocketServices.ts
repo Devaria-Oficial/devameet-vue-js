@@ -90,6 +90,32 @@ class PeerConnectionSession {
             this.socket.emit('call-user', {offer, to, link: this._room});
         }
     }
+
+    onCallMade(){
+        this.socket.on('call-made', async (data: any) => {
+            console.log('call-made', data.socket);
+            
+            const selectedPeer = this.peerConnections[data.socket];
+            if(selectedPeer){
+                await selectedPeer.setRemoteDescription(new RTCSessionDescription(data.offer));
+                const answer = await selectedPeer.createAnswer();
+                await selectedPeer.setLocalDescription(new RTCSessionDescription(answer));
+                this.socket.emit('make-answer', {
+                    answer,
+                    to: data.socket,
+                    link: this._room
+                });
+            }
+        });
+    }
+
+    onAnswerMade(callback: any){
+        this.socket.on('answer-made', async (data: any) => {
+            console.log('answer-made', data.socket);
+            await this.peerConnections[data.socket].setRemoteDescription(new RTCSessionDescription(data.answer));
+            callback(data.socket);
+        })
+    }
 }
 
 export const createPeerConnectionContext = () => {
