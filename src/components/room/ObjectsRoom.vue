@@ -8,7 +8,9 @@ export default defineComponent({
         }
     },
     props: {
-        objects: Array
+        objects: Array,
+        connectedUsers: Array,
+        me: null as any
     },
     data(){
         return {
@@ -19,9 +21,9 @@ export default defineComponent({
 
     },
     methods: {
-        getImageFromObject(object: any) {
+        getImageFromObject(object: any, isAvatar: boolean) {
             if (object?.name?.trim().length > 0) {
-                const path = `../../assets/objects/${object?.type}/${object.name}${object.orientation ? '_' + object.orientation : ''}.png`;
+                const path = `../../assets/objects/${isAvatar? 'avatar' : object?.type}/${isAvatar? object.avatar : object.name}${object.orientation ? '_' + object.orientation : ''}.png`;
                 const imageUrl = new URL(path, import.meta.url);
 
                 if(this.mobile){
@@ -29,7 +31,6 @@ export default defineComponent({
                     img.onload = () => {
                         const exist = this.objectsWithWidth.find((o : any) => o.name == object.name);
                         if(!exist){
-                            console.log({ name: object.name, width: img.width});
                             this.objectsWithWidth.push({ name: object.name, width: img.width});
                         }
                     }
@@ -129,6 +130,12 @@ export default defineComponent({
             }
 
             return cl;
+        },
+        getName(user: any){
+            if(user?.name){
+                return user.name.split(' ')[0];
+            }
+            return '';
         }
     }
 });
@@ -137,10 +144,14 @@ export default defineComponent({
 <template>
     <div class="container-objects">
         <div class="grid">
-            <img v-for="object in objects" :src="getImageFromObject(object)" :style="getObjectStyle(object)"
+            <img v-for="object in objects" :src="getImageFromObject(object, false)" :style="getObjectStyle(object)"
                 :class="getObjectClass(object)" @click="$emit('selectedObject', object)" />
+            <div class="user-avatar" v-for="user in connectedUsers" :class="getObjectClass(user)">
+                <div><span>{{ getName(user) }}</span></div>
+                <img :src="getImageFromObject(user, true)" :style="getObjectStyle(user)"/>
+            </div>
 
-            <div class="preview">
+            <div class="preview" v-if="!connectedUsers || connectedUsers.length === 0">
                 <img src="../../assets/images/preview.svg" alt="entrar na sala" />
                 <button @click="$emit('enterRoom')">Entrar na sala</button>
             </div>

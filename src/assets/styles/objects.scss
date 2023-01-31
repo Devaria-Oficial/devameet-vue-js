@@ -201,7 +201,96 @@
             }
         }
 
+        .user-avatar{
+            position: absolute;
+            z-index: 20;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
 
+            div{
+                background-color: $greyColor4;
+                border: 1.5px solid $primaryColor4;
+                border-radius: 20px;
+                margin-bottom: 10px;
+                padding: 2px 8px;
+
+                span{
+                    font-weight: 500;
+                    line-height: 19px;
+                    color: $primaryColor4;
+                }
+            }
+
+            img{
+                position: relative;
+            }
+
+            &.column-zero {
+                left: -2%;
+            }
+
+            &.column-one {
+                left: 9.5%;
+            }
+
+            &.column-two {
+                left: 22%;
+            }
+
+            &.column-three {
+                left: 34%;
+            }
+
+            &.column-four {
+                left: 46%;
+            }
+
+            &.column-five {
+                left: 58%;
+            }
+
+            &.column-six {
+                left: 71%;
+            }
+
+            &.column-seven {
+                left: 84%;
+            }
+
+            &.row-zero {
+                top: -10%;
+            }
+
+            &.row-one {
+                top: 2%;
+            }
+
+            &.row-two {
+                top: 14%;
+            }
+
+            &.row-three {
+                top: 26%;
+            }
+
+            &.row-four {
+                top: 38%;
+            }
+
+            &.row-five {
+                top: 50%;
+            }
+
+            &.row-six {
+                top: 62%;
+            }
+
+            &.row-seven {
+                top: 74%;
+            }
+        }
     }
 
 
@@ -243,6 +332,72 @@
 
                 button {
                     width: 30%;
+                }
+            }
+
+            .user-avatar{
+                &.column-zero {
+                    left: 1.5%;
+                }
+    
+                &.column-one {
+                    left: 14.5%;
+                }
+    
+                &.column-two {
+                    left: 27%;
+                }
+    
+                &.column-three {
+                    left: 40%;
+                }
+    
+                &.column-four {
+                    left: 52.5%;
+                }
+    
+                &.column-five {
+                    left: 65%;
+                }
+    
+                &.column-six {
+                    left: 77.5%;
+                }
+    
+                &.column-seven {
+                    left: 90%;
+                }
+    
+                &.row-zero {
+                    top: -0%;
+                }
+    
+                &.row-one {
+                    top: 6%;
+                }
+    
+                &.row-two {
+                    top: 18%;
+                }
+    
+                &.row-three {
+                    top: 30%;
+                }
+    
+                &.row-four {
+                    top: 43%;
+                }
+    
+                &.row-five {
+                    top: 55%;
+                }
+    
+                &.row-six {
+                    top: 67%;
+                }
+    
+                &.row-seven {
+                    top: 80%;
                 }
             }
         }
